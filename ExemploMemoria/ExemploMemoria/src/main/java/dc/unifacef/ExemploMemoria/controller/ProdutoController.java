@@ -27,9 +27,27 @@ public class ProdutoController {
     }
 
     @PostMapping
-    public ResponseEntity criar(@RequestBody Produto produto){
+    public ResponseEntity<Produto> criar(@RequestBody Produto produto){
         Produto novo = service.criar(produto);
         URI uri = URI.create("/produto/" + novo.getId());
         return  ResponseEntity.created(uri).body(novo);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> remove(@PathVariable Long id){
+        if (service.remove(id)){
+            return ResponseEntity.noContent().build(); // removeu
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    @PatchMapping("/{id}")
+    public ResponseEntity<Produto> atualiza(@PathVariable Long id,
+                                            @RequestBody Produto novo){
+        Produto resposta = service.atualiza(id, novo);
+        // se atualizou o produto, retorna ele, senão retorna notfound
+        return (resposta != null) ? ResponseEntity.ok(resposta) :
+                ResponseEntity.notFound().build();
     }
 }
