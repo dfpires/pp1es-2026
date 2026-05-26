@@ -3,12 +3,10 @@ package dc.unifacef.bd.controller;
 import dc.unifacef.bd.model.Produto;
 import dc.unifacef.bd.service.ProdutoService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
+import java.net.URI;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
@@ -39,5 +37,16 @@ public class ProdutoController {
             return ResponseEntity.ok(resposta); // 200
         }
         return ResponseEntity.notFound().build(); // 404
+    }
+
+    @PostMapping
+    public ResponseEntity<Produto> salvar(@RequestBody Produto produto){
+        // insere produto no banco
+        Produto novo = service.salvar(produto);
+        // cria uma uri (Uniform Resource Identifier) com o id do novo produto
+        URI uri = URI.create("/produtos/" + novo.getId());
+        // devolve código 201 - created
+        return ResponseEntity.created(uri).body(novo);
+
     }
 }

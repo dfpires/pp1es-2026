@@ -14,15 +14,21 @@ public class ProdutoService {
     private ProdutoRepository repo;
 
     public ProdutoService(ProdutoRepository repo) {
+
         this.repo = repo;
     }
     // recupera todos os produtos
     public List<Produto> listar(){
+
         return repo.findAll();
     }
     // recupera um produto por id
     public Optional<Produto> buscarPorId(Long id){
+
         return repo.findById(id);
     }
-
+    // inserir um produto
+    public Produto salvar(Produto produto){
+        return repo.save(produto);
+    }
 }
