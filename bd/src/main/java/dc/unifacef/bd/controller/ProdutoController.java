@@ -49,4 +49,22 @@ public class ProdutoController {
         return ResponseEntity.created(uri).body(novo);
 
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> remover(@PathVariable Long id){
+        if (service.remover(id)){
+            return ResponseEntity.noContent().build(); // 204
+        }
+        return ResponseEntity.notFound().build(); // 404
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Produto> atualizar(@PathVariable Long id,
+                                             @RequestBody Produto atual){
+        Produto resposta = service.atualizar(id, atual);
+        if (resposta == null){
+            return ResponseEntity.notFound().build(); // 404
+        }
+        return ResponseEntity.ok(resposta); // 200
+    }
 }
