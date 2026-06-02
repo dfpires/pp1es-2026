@@ -1,7 +1,7 @@
-package fatecfranca.edu.produtos_db.service;
+package dc.unifacef.produtos_relacionamento.service;
 
-import fatecfranca.edu.produtos_db.model.ProdutoFisico;
-import fatecfranca.edu.produtos_db.repository.ProdutoFisicoRepository;
+import dc.unifacef.produtos_relacionamento.model.ProdutoVirtual;
+import dc.unifacef.produtos_relacionamento.repository.ProdutoVirtualRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -9,24 +9,24 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProdutoFisicoService {
+public class ProdutoVirtualService {
 
-    private final ProdutoFisicoRepository repo;
+    private final ProdutoVirtualRepository repo;
 
-    public ProdutoFisicoService(ProdutoFisicoRepository repo) {
+    public ProdutoVirtualService(ProdutoVirtualRepository repo) {
         this.repo = repo;
     }
 
-    public List<ProdutoFisico> listar() {
+    public List<ProdutoVirtual> listar() {
         return repo.findAll();
     }
 
-    public Optional<ProdutoFisico> buscar(Long id) {
+    public Optional<ProdutoVirtual> buscar(Long id) {
         return repo.findById(id);
     }
 
     @Transactional
-    public ProdutoFisico salvar(ProdutoFisico p) {
+    public ProdutoVirtual salvar(ProdutoVirtual p) {
         return repo.save(p);
     }
 
@@ -40,7 +40,7 @@ public class ProdutoFisicoService {
     }
 
     @Transactional
-    public ProdutoFisico atualizar(Long id, ProdutoFisico atual) {
+    public ProdutoVirtual atualizar(Long id, ProdutoVirtual atual) {
         if (repo.existsById(id)) {
             atual.setId(id);
             return repo.save(atual);

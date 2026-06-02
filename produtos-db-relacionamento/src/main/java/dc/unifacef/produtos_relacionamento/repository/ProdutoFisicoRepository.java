@@ -1,6 +1,6 @@
-package fatecfranca.edu.produtos_db.repository;
+package dc.unifacef.produtos_relacionamento.repository;
 
-import fatecfranca.edu.produtos_db.model.ProdutoFisico;
+import dc.unifacef.produtos_relacionamento.model.ProdutoFisico;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

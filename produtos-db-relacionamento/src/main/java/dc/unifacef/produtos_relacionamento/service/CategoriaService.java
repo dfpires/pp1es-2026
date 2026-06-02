@@ -1,7 +1,7 @@
-package fatecfranca.edu.produtos_db.service;
+package dc.unifacef.produtos_relacionamento.service;
 
-import fatecfranca.edu.produtos_db.model.ProdutoVirtual;
-import fatecfranca.edu.produtos_db.repository.ProdutoVirtualRepository;
+import dc.unifacef.produtos_relacionamento.model.Categoria;
+import dc.unifacef.produtos_relacionamento.repository.CategoriaRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -9,25 +9,25 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProdutoVirtualService {
+public class CategoriaService {
 
-    private final ProdutoVirtualRepository repo;
+    private final CategoriaRepository repo;
 
-    public ProdutoVirtualService(ProdutoVirtualRepository repo) {
+    public CategoriaService(CategoriaRepository repo) {
         this.repo = repo;
     }
 
-    public List<ProdutoVirtual> listar() {
+    public List<Categoria> listar() {
         return repo.findAll();
     }
 
-    public Optional<ProdutoVirtual> buscar(Long id) {
+    public Optional<Categoria> buscar(Long id) {
         return repo.findById(id);
     }
 
     @Transactional
-    public ProdutoVirtual salvar(ProdutoVirtual p) {
-        return repo.save(p);
+    public Categoria salvar(Categoria c) {
+        return repo.save(c);
     }
 
     @Transactional
@@ -40,7 +40,7 @@ public class ProdutoVirtualService {
     }
 
     @Transactional
-    public ProdutoVirtual atualizar(Long id, ProdutoVirtual atual) {
+    public Categoria atualizar(Long id, Categoria atual) {
         if (repo.existsById(id)) {
             atual.setId(id);
             return repo.save(atual);

@@ -1,4 +1,4 @@
-package fatecfranca.edu.produtos_db;
+package dc.unifacef.produtos_relacionamento;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

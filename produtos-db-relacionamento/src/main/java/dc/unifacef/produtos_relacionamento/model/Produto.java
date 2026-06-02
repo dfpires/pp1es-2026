@@ -1,4 +1,4 @@
-package fatecfranca.edu.produtos_db.model;
+package dc.unifacef.produtos_relacionamento.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;

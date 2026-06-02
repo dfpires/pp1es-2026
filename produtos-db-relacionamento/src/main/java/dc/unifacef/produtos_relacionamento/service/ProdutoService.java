@@ -1,7 +1,7 @@
-package fatecfranca.edu.produtos_db.service;
+package dc.unifacef.produtos_relacionamento.service;
 
-import fatecfranca.edu.produtos_db.model.Produto;
-import fatecfranca.edu.produtos_db.repository.ProdutoRepository;
+import dc.unifacef.produtos_relacionamento.model.Produto;
+import dc.unifacef.produtos_relacionamento.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

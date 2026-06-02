@@ -1,7 +1,7 @@
-package fatecfranca.edu.produtos_db.controller;
+package dc.unifacef.produtos_relacionamento.controller;
 
-import fatecfranca.edu.produtos_db.model.ProdutoVirtual;
-import fatecfranca.edu.produtos_db.service.ProdutoVirtualService;
+import dc.unifacef.produtos_relacionamento.model.ProdutoVirtual;
+import dc.unifacef.produtos_relacionamento.service.ProdutoVirtualService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

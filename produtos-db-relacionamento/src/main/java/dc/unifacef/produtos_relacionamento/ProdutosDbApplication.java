@@ -1,4 +1,4 @@
-package fatecfranca.edu.produtos_db;
+package dc.unifacef.produtos_relacionamento;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
